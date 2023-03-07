@@ -12,13 +12,16 @@ Worker- Shift hours(time), Wage, Position(manager, front-desk staff, etc)
 Calendar - Worker hours, meeting rooms, event rooms
 Event Room- contain a capacity, chairs, and availibility
 Meeting rooms- contain a capacity, chairs, and availibility
+Buildings: Support for multiple buildings, each with their own assigned Workers, Event Rooms, and Meeting Rooms.
 
 The fourth section titled Functionality provides a list of the functionality your application will support. For each functionality, you must include a brief description of the functionality and how it will be used in your application. For example, if you are creating a recipe application, you might have a functionality for adding a recipe. You would then describe how a user would add a recipe to your application. You must include at least four different types of functionality.
 
 Calendar - A company can export a google calendar onto our application, and we would create a schedule from that calendar on our app/ Company can create their own schedule on that app
+    -The import functionality will take the form of parsing a ics file and creating events on our calender correspondingly.
 Shift manager- Employees can take and drop shifts. Whenever an employee drops a shift, an email is sent out to other employees asking for shift swaps
 Room scheduler- Schedules and books meeting rooms/event rooms.
-Rate my employee- Rate fellow employees
+Incident Report- Report incidents with other workers. These reports can only be viewed by those with specific roles (HR, shared manager). A specific time and location can be specified. 
+
 
 
 
