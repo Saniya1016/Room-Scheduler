@@ -15,4 +15,4 @@ Meeting rooms- contain a capacity, chairs, and availibility
 
 The fourth section titled Functionality provides a list of the functionality your application will support. For each functionality, you must include a brief description of the functionality and how it will be used in your application. For example, if you are creating a recipe application, you might have a functionality for adding a recipe. You would then describe how a user would add a recipe to your application. You must include at least four different types of functionality.
 
-The fifth section titled License includes the license you choose for your project. You must choose a license from the Open Source Initiative and include a link to the license in your README.md file. You must also include a copy of the license in your repository (LICENSE). For example, if you choose the MIT license, you would include the following in your README.md file:
+[MIT License](https://opensource.org/licenses/MIT)
