@@ -15,4 +15,11 @@ Meeting rooms- contain a capacity, chairs, and availibility
 
 The fourth section titled Functionality provides a list of the functionality your application will support. For each functionality, you must include a brief description of the functionality and how it will be used in your application. For example, if you are creating a recipe application, you might have a functionality for adding a recipe. You would then describe how a user would add a recipe to your application. You must include at least four different types of functionality.
 
+Calendar - A company can export a google calendar onto our application, and we would create a schedule from that calendar on our app/ Company can create their own schedule on that app
+Shift manager- Employees can take and drop shifts. Whenever an employee drops a shift, an email is sent out to other employees asking for shift swaps
+Room scheduler- Schedules and books meeting rooms/event rooms.
+Rate my employee- Rate fellow employees
+
+
+
 [MIT License](https://opensource.org/licenses/MIT)
