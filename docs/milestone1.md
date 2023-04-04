@@ -12,6 +12,6 @@
 
 ![Confirmation Page](./wwPics/Confirmation.png)
 
-![Calendar Page] (./wwPics/CalendarPage)
+![Calendar Page](./wwPics/CalendarPage)
 
-![Room Availability Page] (./wwPics/RoomAvailability)
+![Room Availability Page](./wwPics/RoomAvailability)
