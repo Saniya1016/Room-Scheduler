@@ -2,41 +2,74 @@
 
 ## Wireframe
 
-Facilis quas ut iste nam et. Doloribus ut nostrum nobis ut ut eos quia vel soluta. Minus dolorem error neque voluptas ex.
+The following images contain the fireframe for the design for BuildingManagement.com
 
-![Wireframe 1](wireframe-1.png)
+![Wireframe 1](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/1.png)
 
-Consequuntur reiciendis illo non suscipit necessitatibus dolores doloribus sed atque. Quos rem excepturi ut eum et eaque facere et. Illo quos voluptatem ratione sint numquam dolor assumenda. Ea et et sapiente distinctio et aut aspernatur necessitatibus est.
- 
-Est velit debitis enim. Esse et et quos animi animi. Quibusdam et porro et praesentium maiores dolores facilis. Voluptas molestias sapiente aperiam culpa. Et doloribus maiores omnis quisquam dolores.
- 
-Esse est et ut rem et praesentium quibusdam eaque. Aut consectetur illum placeat repellendus nam. Exercitationem dolorem tempora.
 
-![Wireframe 2](wireframe-2.png)
+![Wireframe 2](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/2.png)
 
-Qui commodi beatae. Quaerat saepe tempora nisi labore ducimus corporis adipisci repellat nihil. Dolores est sed ratione consequatur est magnam cupiditate. Repellendus molestias qui doloribus. Deserunt quidem temporibus. Sunt hic laudantium vitae natus est.
+![Wireframe 3](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/3.png)
+
+
+![Wireframe 4](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/4.png)
+
+![Wireframe 5](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/5.png)
+
+
+![Wireframe 6](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/6.png)
+
+![Wireframe 7](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/7.png)
+
+
+![Wireframe 8](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/8.png)
+
+![Wireframe 9](https://github.com/umass-cs-326-s23/326-project-repo-team-13/blob/ananyaedits/docs/ui-design/wireframes/buildingmanagement/9.png)
+
+
 
 ## Stories
 
-### Story 1
 
-Omnis sed consequatur beatae laudantium voluptatem tenetur. Exercitationem omnis quisquam omnis. Tenetur vitae excepturi rerum quia corporis soluta qui iste necessitatibus. Aut quam autem cum et. Harum consequatur perspiciatis eum et temporibus nisi qui pariatur.
+The first screen or the homepage of the web application, contains the name, slogan, and an illustration to catch the user's eye.
 
-### Story 2
+There is a prompt which suggests the user to scroll down so they can log into their account or create a new one.
 
-Blanditiis et esse ipsa soluta. Temporibus sunt possimus ut veritatis sint ut in quia eum. Omnis ea vel quae eligendi. Illo optio est doloremque autem. Sit ea dolorum architecto.
- 
-Fuga ea culpa eaque molestiae illo quod odio culpa. Et aut repellendus aut temporibus quae quia et. Quia consectetur quod est. Repellat animi amet quia velit.
- 
-Voluptatum accusantium dolores cumque sit accusamus. Eaque quia qui commodi rerum eos doloribus. Sint aliquam quae ut ut tempora pariatur qui.
+Once a user completes the login, they are taken to a new page where they can choose to either add a room, or book a room.
 
-### Story 3
+    Scenario 1: The user wishes to book or cancel a reservation
 
-Esse itaque quia est nam. Ut voluptate voluptatem tempora officia. Minus et repellendus ut aut. Aut sint sint distinctio perferendis voluptas. Aut libero qui reprehenderit. Quia dolor ratione dolore porro.
- 
-Est quod dolor natus. Nihil provident omnis. Exercitationem voluptate earum. Earum doloremque voluptates quia eos qui suscipit dicta.
- 
-Optio ea sit minima cum consequatur at ut incidunt. Ea voluptatem iure modi officiis. Distinctio eum nemo soluta nulla.
+    The user is guided to a new screen where they can access the interactive calender to pick any date of their choice.
+    Once they click on a date, they are guided to a new page where they can see all the rooms and their availibilities, capacities, etc for the selected date.
+
+        Scenario 1a:
+        If they wish to reserve a room, they can select on an available room, and the wbsite takes them to a new page where they can edit or confirm their booking details.
+
+        Once they confirm, they are guided to a confimation page where all their details are shown. 
+
+        The user then recieves an option to either reserve another room, or to log out. 
+
+        Scenario 1b:
+        If they wish to cancel an existing reservation, they can select on an available room, and if they have an existing reservation,  the wbsite takes them to a new page where they can confirm their booking details.
+
+        Once they confirm, they are guided to a confimation page where their cancellation is confirmed and all their details are shown. 
+
+        The user then recieves an option to either reserve another room, or to log out. 
+
+    Scenario 2: The user wishes to add room details
+
+        The user is guided to a new screen where they can access the interactive calender to pick any date of their choice.
+
+        Once they click on a date, they are guided to a new page where they can type in the details for the room including their room number, capacities, etc.
+
+        Once they press confirm, the room details get added to the database, and the user is guided to the confirmation page.
+
+
+At every page of the website, the user has a way to go to the last page, or to log out.
+
+
+
+
 
 ## HTML & CSS Mockup
 
