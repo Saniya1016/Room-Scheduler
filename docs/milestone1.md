@@ -11,3 +11,7 @@
 ![Login Page](./wwPics/login_page.png)
 
 ![Confirmation Page](./wwPics/Confirmation.png)
+
+![Calendar Page] (./wwPics/CalendarPage)
+
+![Room Availability Page] (./wwPics/RoomAvailability)
