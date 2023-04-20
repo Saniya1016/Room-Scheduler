@@ -20,5 +20,7 @@ export default class User{
     set_end_time = (new_time) => this.end_time = new_time;
 }
 
+// =============== TESTING ============== //
+
 // let user1 = new User(4, 3, 4, 6);
 // console.log(user1.get_capacity());
