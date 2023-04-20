@@ -80,8 +80,10 @@ export default class Room{
         let duration = user.get_end_time() - user.get_start_time();
         let i = 0;
         let arr = this.availability.priv.data;
+        console.log(arr);
         for (let i = 0; i < arr.length-1; ++i){
-            let diff = arr[i][1] - arr[i+1][0];
+            let diff =  arr[i+1][0] - arr[i][1];
+            console.log("diff: " , diff);
             if(diff >= duration){
                 return arr[i][1];
             }
@@ -93,8 +95,9 @@ export default class Room{
 
 let room1 = new Room(0 , 4 , 8, 24);
 let user1 = new User(4, 3, 8, 10);
-console.log(room1.get_availability());
+console.log(room1.get_availability().priv.data);
 // room1.merge_availabilities();
+console.log(room1.next_availability(user1));
 console.log(room1.detect_clash(user1));
 console.log(room1.get_availability().priv.data);
 // console.log(room1.get_capacity());
