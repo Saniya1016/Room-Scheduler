@@ -8,6 +8,7 @@ export default class Room{
         this.id = id;
         this.capacity = capacity;
         //time when the building opens
+        
         this.start_time = start_time;
         //time when the building closes
         this.end_time = end_time;
