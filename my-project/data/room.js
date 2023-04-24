@@ -1,5 +1,5 @@
 import User from './user.js'
-import {Heap} from 'heap-js';
+// import {Heap} from 'heap-js';
 import PriorityQueue from 'js-priority-queue';
 
 export default class Room{
@@ -8,7 +8,6 @@ export default class Room{
         this.id = id;
         this.capacity = capacity;
         //time when the building opens
-        
         this.start_time = start_time;
         //time when the building closes
         this.end_time = end_time;
@@ -42,10 +41,11 @@ export default class Room{
     book_room = (user) => {
         this.availability.queue([user.get_start_time() , user.get_end_time()]);
         this.merge_availabilities();
+        user.set_assigned_room(this.get_id());
     }
 
     is_compatible = (user) => {
-        return (user.get_capacity() <= this.capacity && this.start_time <= user.get_start_time() && this.end_time >= user.get_end_time());
+        return (user.get_capacity() <= this.capacity && this.start_time <= user.get_start_time() && this.end_time >= user.get_end_time() && (user.get_end_time() - user.get_start_time()) <= 3);
     }
 
     //merges booked times
@@ -87,17 +87,17 @@ export default class Room{
     //suggest next availability for the duration that user inputs
     next_availability = (user) => {
         let duration = user.get_end_time() - user.get_start_time();
-        let i = 0;
         let arr = this.availability.priv.data;
-        console.log(arr);
+        let result = [];
+        // console.log(arr);
         for (let i = 0; i < arr.length-1; ++i){
             let diff =  arr[i+1][0] - arr[i][1];
-            console.log("diff: " , diff);
+            // console.log("diff: " , diff);
             if(diff >= duration){
-                return arr[i][1];
+                result.push([arr[i][1] , arr[i+1][0]]);
             }
         }
-        return -1;
+        return result;
     }
 }
 
