@@ -30,7 +30,32 @@ export default class Room{
     set_capacity = (new_capacity) => {this.capacity = new_capacity;}
 
     get_availability = () => this.availability.priv.data;
-    set_availability = (new_availability) => {this.availability = new_availability;}
+    add_availability = (time) => {this.availability.queue(time);}
+    delete_availability = (time) => {
+        let arr = this.availability.priv.data;
+        let left = 0
+        let right = len(arr)-1;
+        while(left <= right){
+            let mid = Math.floor((left+right)/2);
+            if(arr[mid][0] === time[0]){
+                if(arr[mid][1] !== time[1]){
+                    return -1;
+                }
+                else{
+                    //success
+                    delete arr[mid];
+                    return 1;
+                }
+            }
+            else if(arr[mid][0] > time[0]){
+                right-=1;
+            }
+            else{
+                left +=1;
+            }
+        }
+        return -1;
+    }
     
     get_start_time = () => this.start_time;
     set_start_time = (new_time) => this.start_time = new_time;
