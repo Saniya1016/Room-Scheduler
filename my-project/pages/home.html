@@ -10,30 +10,38 @@
     <title>Home Page</title>
 </head>
 <body>
-    <div class = "h-screen">
-        <div class="bg-purple fixed">
+    <nav class="bg-black fixed top-0 left-0 w-full z-10">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex">
+              <!-- <a href="#" class="flex-shrink-0 flex items-center">
+                <img class="h-8 w-auto" src="logo.svg" alt="Building Management">
+              </a> -->
+              <div class="hidden sm:ml-6 sm:flex">
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200">Home</a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id="login_page">Click to Login</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200">Rooms</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="mt-16">
+        <div class="bg-purple">
             <div class="flex items-top justify-center mt-5.5 pt-9">
                 <h2 class="text-center text-8xl font-bold font-serif text-white ">Building Management</h2>
             </div>
-            <div class = "container mx-auto pt-24 flex">
-                <div class = "flex-1 pt-11  pl-8">
+            <div class="container mx-auto pt-24 flex">
+                <div class="flex-1 pt-11 pl-8">
                     <h2 class="text-left text-7xl font-bold font-serif text-white">Find your space </br> Book your place</h2>
                 </div>
-                <div class = "flex-1 max-w-full">
-                    <img src="images/night-boardroom-office-projector-light-260nw-2271476391.webp" alt=" building_picture" class = "w-full max-h-72">
+                <div class="flex-1 max-w-full">
+                    <img src="images/night-boardroom-office-projector-light-260nw-2271476391.webp" alt=" building_picture" class="w-full max-h-72">
                 </div>
-                
             </div>
         </div>
-        
-       <div class="fixed bottom-0 left-0 w-full h-28 bg-gray-100 ">
-        <div class="pl-5 pt-10 text-purple-800"> 
-            <button id="login_page">Click to Login</button>
-            
-        </div>
-       </div>
     </div>
-    
+
     <script src="home.js"></script>
 </body>
 </html>
