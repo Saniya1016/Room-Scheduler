@@ -1,9 +1,12 @@
 import PouchDb from "pouchdb";
 
-export default class Database{
+//class for the rooms database
+export default class Room_Database{
+
     constructor(){
         this.db = new PouchDb('rooms');
         
+        //info about docs in database
         this.db.info(function(err, info) {
             if (err) {
                 return console.log(err);
@@ -13,6 +16,7 @@ export default class Database{
         });
     }
 
+    //create a room with its attributes ex: capacity, start/end times
     async createRoom(id, capacity, start_time, end_time){
         let room = {_id: id, capacity: capacity, start_time: start_time, end_time: end_time, availability: []};
         await this.db.put(room).then(function (response) {
@@ -24,6 +28,7 @@ export default class Database{
 
     }
 
+    //get information about a particular room input: id
     async readRoom(id){
         await this.db.get(id).then(function (doc) {
             // handle doc
@@ -33,6 +38,7 @@ export default class Database{
           });
     }
 
+    //update the capacity for a room
     async updateRoomCapacity(id, capacity){
         let db = this.db;
         await this.db.get(id).then(function(doc) {
@@ -46,6 +52,7 @@ export default class Database{
           });
     }
 
+    //add a booking to the availability array for a particular room
     async addTimeToAvailability(id, time){
         let db = this.db;
         await this.db.get(id).then(function(doc) {
@@ -59,7 +66,7 @@ export default class Database{
           });
     }
 
-    //element[0] === time[0] && element[1] === time[1]
+    //remove a booking time from the availability array for a particular room
     async removeTimeFromAvailability(id, time){
         let db = this.db;
         await this.db.get(id).then(function(doc) {
@@ -80,6 +87,7 @@ export default class Database{
           });
     }
 
+    //delete a room
     async deleteRoom(id){
         let db = this.db;
         await this.db.get(id).then(function(doc) {
@@ -97,7 +105,7 @@ export default class Database{
 
 //=============== TESTING ================= //
 
-// let data = new Database();
+// let data = new Room_Database();
 
 // await data.createRoom("5",4,9,10);
 // await data.readRoom("5");
