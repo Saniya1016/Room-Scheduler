@@ -59,13 +59,14 @@ export default class Database{
           });
     }
 
+    //element[0] === time[0] && element[1] === time[1]
     async removeTimeFromAvailability(id, time){
         let db = this.db;
         await this.db.get(id).then(function(doc) {
             let arr = doc.availability;
-            let index = arr.findIndex(element => element[0] === time[0] && element[1] === time[1]);
-            if(index > 0){
-                delete arr[index];
+            let index = arr.findIndex((element) => element[0] === time[0] && element[1] === time[1]);
+            if(index >= 0){
+                arr.splice(index,1);
             }
             else{
                 console.log("Time range not found");
@@ -93,12 +94,20 @@ export default class Database{
 
 }
 
-let data = new Database();
+
+//=============== TESTING ================= //
+
+// let data = new Database();
 
 // await data.createRoom("5",4,9,10);
 // await data.readRoom("5");
 // await data.updateRoomCapacity("5", 33);
 // await data.readRoom("5");
+// await data.addTimeToAvailability("5", [9,12]);
+// await data.removeTimeFromAvailability("5", [9,12]);
+// await data.deleteRoom("5");
+// await data.readRoom("5");
+
 
 
 
