@@ -76,8 +76,6 @@ export default class Room{
                 return true;
             }
         }
-        // this.availability.queue([user.get_start_time() , user.get_end_time()]);
-        // this.merge_availabilities();
         return false;
     }
 
