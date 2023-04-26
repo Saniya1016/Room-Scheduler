@@ -16,8 +16,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    font-weight: lighter;
+    font-size: 40px;
 
 }
 
@@ -65,7 +64,7 @@ hr {
 }
 
 
-#back_button {
+#book_button {
     width: 20%;
     color: white;
     font-size: 48px;

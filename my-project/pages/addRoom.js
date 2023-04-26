@@ -1,7 +1,10 @@
+//import "../server/room_crud.js";
 
 const confirmButton = document.getElementById("confirm_button");
 confirmButton.addEventListener('click', confirmRoom);
 
+const backButton = document.getElementById("back_arrow");
+backButton.addEventListener('click', goBack);
 
 function confirmRoom() {
     const roomOpenTime = document.getElementById("open_info");
@@ -15,13 +18,18 @@ function confirmRoom() {
     let newCapacity = roomCapacity.value;
 
     if (confirm("Please confirm your details: \n" +
-                "Open time: " + newOpen + "\n" +
+                "Open Time: " + newOpen + "\n" +
                 "Close Time: " + newClose + "\n" +
                 "Room Number: " + newID + "\n" + 
                 "Room Capacity: " + newCapacity)) {
-        console.log("ok")
+        
     }
 
+}
+
+//Takes user back to the previous page
+function goBack() {
+    window.location.href = "choose_action.html";
 }
 
 

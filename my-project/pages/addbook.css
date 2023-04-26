@@ -62,14 +62,18 @@ input {
     padding: 10px;
 }
 
-.back_arrow {
+#back_arrow {
     width: 5%;
     color: white;
     font-size: 18px;
     background-color: #553EA3; 
     border: 5px solid #553EA3;
     border-radius: 25px;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
 }
 
 .top {
@@ -79,15 +83,6 @@ input {
     margin: 1em;
     border-radius: 20px;
     padding: 3px;
-}
-
-.bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding: 10px;
-    border-radius: 25px;
 }
 
 .circle {
