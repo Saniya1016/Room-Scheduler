@@ -4,33 +4,51 @@
     <meta charset="UTF-8" />
     <title>Add_Room</title>
     <link rel="stylesheet" href="addroom.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="addRoom.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script type="module" src="./addroom.js"></script>
   </head>
   <body>
-    <div class="top_header">
+    <!-- <div class="top_header">
         <label class = "back_arrow top"><-</label>
         <div class="circle"></div>
-    </div>
+    </div> -->
+    <nav class="bg-black fixed top-0 left-0 w-full z-10">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex">
+              <!-- <a href="#" class="flex-shrink-0 flex items-center">
+                <img class="h-8 w-auto" src="logo.svg" alt="Building Management">
+              </a> -->
+              <div class="hidden sm:ml-6 sm:flex">
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "home_page">Home</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id="login_page">Click to Login</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "rooms_page">Rooms</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "choose_page">Add/Book Room</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <br />
+    <br />
     <br />
     <br />
     <h1 class = "page_title">Add room details</h1>
     <br />
     <br />
     <div class = "details_box">
+
         <div class="box_item">
-            <label for="booking_info">Added By:&nbsp&nbsp</label>
-            <input type="text" id="booking_info" size="10" />
+            <label for="open_info">Open Time:&nbsp&nbsp</label>
+            <input type="text" id="open_info" size="10"/>
         </div>
         <br/>
 
         <div class="box_item">
-            <label for="date_info">Date:&nbsp&nbsp</label>
-            <input type="text" id="date_info" size="10" />
-        </div>
-        <br/>
-
-        <div class="box_item">
-            <label for="building_info">Building:&nbsp&nbsp</label>
-            <input type="text" id="building_info" size="10"/>
+            <label for="close_info">Close Time:&nbsp&nbsp</label>
+            <input type="text" id="close_info" size="10"/>
         </div>
         <br/>
 
@@ -61,10 +79,8 @@
     <br />
     <button id= "confirm_button">Confirm</button>
     <br />
-    <label class = "back_arrow bottom"><-</label>
-
-    <script src="https://cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
-    <script type="module" src="./addroom.js"></script>
+    <button id = "back_arrow"><-</button>
+    
    
   </body>
   </html>

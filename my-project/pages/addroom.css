@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
     background-color: #ECEDEB;
 }
@@ -13,13 +17,17 @@ input {
     font-size: 36px;
     color: #553EA3;
     background-color: #ECEDEB;
-    border-color: #553EA3;
     outline-color: #553EA3;
+    border: 2px solid #553EA3;
 }
 
 .top_header {
     display: flex;
     justify-content: space-between;
+}
+
+.page_title {
+    font-size: 36px;
 }
 
 .details_box {
@@ -53,38 +61,34 @@ input {
     padding: 10px;
 }
 
-.back_arrow {
+#confirm_button:focus {
+    width: 10%;
+    color: white;
+    font-size: 18px;
+    background-color: #553EA3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 5px solid #553EA3;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+#back_arrow {
     width: 5%;
     color: white;
     font-size: 18px;
     background-color: #553EA3; 
     border: 5px solid #553EA3;
     border-radius: 25px;
-    
-}
-
-.top {
-    display: flex;
-    align-items: left;
-    justify-content: center;
-    margin: 1em;
-    border-radius: 20px;
-    padding: 3px;
-}
-
-.bottom {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
     padding: 10px;
-    border-radius: 25px;
+    
 }
 
-.circle {
-    margin: 1em;
-    height: 40px;
-    width: 40px;
-    background-color: #553EA3;
-    border-radius: 50%;
-  }
+
+  
