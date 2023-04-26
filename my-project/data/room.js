@@ -15,12 +15,14 @@ export default class Room{
         this.availability = new PriorityQueue({comparator: (a, b) => a[0] - b[0]});
         //default values
         this.availability.queue([0,start_time]);
+
         // this.availability.queue([11, 13]);
-        // this.availability.queue([15,16]);
+        // this.availability.queue([13,16]);
         // this.availability.queue([16,17]);
         // this.availability.queue([18,20]);
-        this.availability.queue([end_time, 1000]);
 
+        this.availability.queue([end_time, 1000]);
+        this.assigned = {};
     }
 
     get_id = () => this.id;
@@ -30,32 +32,6 @@ export default class Room{
     set_capacity = (new_capacity) => {this.capacity = new_capacity;}
 
     get_availability = () => this.availability.priv.data;
-    add_availability = (time) => {this.availability.queue(time);}
-    delete_availability = (time) => {
-        let arr = this.availability.priv.data;
-        let left = 0
-        let right = len(arr)-1;
-        while(left <= right){
-            let mid = Math.floor((left+right)/2);
-            if(arr[mid][0] === time[0]){
-                if(arr[mid][1] !== time[1]){
-                    return -1;
-                }
-                else{
-                    //success
-                    delete arr[mid];
-                    return 1;
-                }
-            }
-            else if(arr[mid][0] > time[0]){
-                right-=1;
-            }
-            else{
-                left +=1;
-            }
-        }
-        return -1;
-    }
     
     get_start_time = () => this.start_time;
     set_start_time = (new_time) => this.start_time = new_time;
@@ -63,11 +39,7 @@ export default class Room{
     get_end_time = () => this.end_time;
     set_end_time = (new_time) => this.end_time = new_time;
 
-    book_room = (user) => {
-        this.availability.queue([user.get_start_time() , user.get_end_time()]);
-        this.merge_availabilities();
-        user.set_assigned_room(this.get_id());
-    }
+    get_assigned_users = () => this.assigned;
 
     is_compatible = (user) => {
         return (user.get_capacity() <= this.capacity && this.start_time <= user.get_start_time() && this.end_time >= user.get_end_time() && (user.get_end_time() - user.get_start_time()) <= 3);
@@ -89,7 +61,7 @@ export default class Room{
 
     //check if there is a clash of timings with room availability and user preferences
     //returns true if there is a clash
-    //else adds the booking and returns false
+    //else returns false
     detect_clash = (user) => {
         let clone_availability = new PriorityQueue({comparator: (a, b) => a[0] - b[0]});
         
@@ -104,8 +76,6 @@ export default class Room{
                 return true;
             }
         }
-        // this.availability.queue([user.get_start_time() , user.get_end_time()]);
-        // this.merge_availabilities();
         return false;
     }
 
@@ -124,16 +94,56 @@ export default class Room{
         }
         return result;
     }
+
+    book_room = (user) => {
+        let value = [user.get_start_time() , user.get_end_time()];
+        this.availability.queue(value);
+        this.merge_availabilities();
+        // user.set_assigned_room(this.get_id());
+        let key = user.get_id();
+        if(key in this.assigned){
+            this.assigned[key].push(value);
+        } else{
+            this.assigned[key] = [value];
+        }
+    }
+
+    //time = [start_time, end_time]
+    delete_booking(user){
+        let time = [user.get_start_time() , user.get_end_time()];
+        let key = user.get_id();
+        if(key in this.assigned){
+            let value = this.assigned[key];
+            let index = value.findIndex((element) => element[0] === time[0] && element[1] === time[1]);
+            if(index >= 0){
+                value.splice(index,1);
+                let new_availability = new PriorityQueue({comparator: (a, b) => a[0] - b[0]});
+                value.forEach((element) => {new_availability.queue(element)});
+                this.availability = new_availability;
+                this.merge_availabilities();
+            }
+        }
+    }
 }
 
 // =============== TESTING ============== //
 
-// let room1 = new Room(0 , 4 , 8, 24);
+// let room1 = new Room(0 , 4 , 8, 23);
 // let user1 = new User(4, 3, 8, 10);
+// room1.merge_availabilities();
 // console.log(room1.get_availability());
+
 // room1.merge_availabilities();
 // console.log(room1.next_availability(user1));
 // console.log(room1.detect_clash(user1));
 // console.log(room1.get_availability());
 // console.log(room1.get_capacity());
 // console.log(room1.is_compatible(user1));
+
+// room1.book_room(user1);
+// console.log(room1.get_assigned_users());
+// console.log(room1.get_availability());
+
+// room1.delete_booking(user1 , [8,10]);
+// console.log(room1.get_assigned_users());
+// console.log(room1.get_availability());

@@ -5,7 +5,6 @@ export default class User{
         this.capacity = capacity;
         this.start_time = start_time;
         this.end_time = end_time;
-        this.assigned_room_id = [];
     }
 
     get_id = () => this.id;
@@ -19,9 +18,6 @@ export default class User{
 
     get_end_time = () => this.end_time;
     set_end_time = (new_time) => this.end_time = new_time;
-
-    get_assigned_room = () => this.assigned_room_id;
-    set_assigned_room = (room_id) => this.assigned_room_id.push(room_id);
 }
 
 // =============== TESTING ============== //

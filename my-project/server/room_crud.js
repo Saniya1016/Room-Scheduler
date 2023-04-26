@@ -1,10 +1,11 @@
-import PouchDb from "pouchdb";
+// import PouchDb from "pouchdb";
+// import PouchDb from "//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js";
 
 //class for the rooms database
 export default class Room_Database{
 
     constructor(){
-        this.db = new PouchDb('rooms');
+        this.db = new PouchDB('rooms');
         
         //info about docs in database
         this.db.info(function(err, info) {
