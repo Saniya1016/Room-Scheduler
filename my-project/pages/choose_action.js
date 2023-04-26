@@ -1,7 +1,5 @@
 
 
-
-
 const confirmButton = document.getElementById("add_button");
 confirmButton.addEventListener('click', goAdd);
 
