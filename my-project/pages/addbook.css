@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
     background-color: #ECEDEB;
 }
@@ -21,6 +25,10 @@ input {
 .top_header {
     display: flex;
     justify-content: space-between;
+}
+
+.page_title {
+    font-size: 36px;
 }
 
 .details_box {

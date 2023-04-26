@@ -1,7 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    background-color: #ECEDEB;
+}
+
 .top_header {
     display: flex;
     justify-content: space-between;
 }
+
 #welcome_text {
     color: #553EA3;
     display: flex;
@@ -10,6 +19,10 @@
     font-size: 30px;
     font-weight: lighter;
 
+}
+
+.page_title {
+    font-size: 36px;
 }
 
 hr {
@@ -46,7 +59,7 @@ hr {
     padding: 3px;
 }
 
-.middle_buttons {
+.middle_buttons {  
     display: flex;
     justify-content: space-between;
 }

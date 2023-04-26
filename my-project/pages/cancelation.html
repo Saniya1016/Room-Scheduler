@@ -4,12 +4,28 @@
     <meta charset="UTF-8" />
     <title>Cancel_Booking</title>
     <link rel="stylesheet" href="cancelation.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="top_header">
-        <label class = "back_arrow top"><-</label>
-        <div class="circle"></div>
-    </div>
+    <nav class="bg-black fixed top-0 left-0 w-full z-10">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex">
+              <!-- <a href="#" class="flex-shrink-0 flex items-center">
+                <img class="h-8 w-auto" src="logo.svg" alt="Building Management">
+              </a> -->
+              <div class="hidden sm:ml-6 sm:flex">
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "home_page">Home</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id="login_page">Click to Login</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "rooms_page">Rooms</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "choose_page">Add/Book Room</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <br />
+    <br />
     <br />
     <br />
     <h1 class = "page_title">Cancel your reservation</h1>
@@ -28,8 +44,8 @@
         <br/>
 
         <div class="box_item">
-            <label for="building_info">Building:&nbsp&nbsp</label>
-            <label id="building_info">XXXXXXXXXXX</label>
+            <label for="reservation_info">Reservation Time:&nbsp&nbsp</label>
+            <label id="reservation_info">XX:XX to XX:XX</label>
         </div>
         <br/>
 
@@ -44,7 +60,6 @@
             <label id="capacity_info">1234</label>
         </div>
     </div>
-    <br />
     <br />
     <label id= "confirm_button">Confirm -></label>
     <br />
