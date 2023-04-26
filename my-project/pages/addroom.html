@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="addroom.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="addRoom.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js"></script>
+    <script type="module" src="./addroom.js"></script>
   </head>
   <body>
     <!-- <div class="top_header">
@@ -51,6 +53,18 @@
         <br/>
 
         <div class="box_item">
+            <label for="start_time_info">Room Opens At:&nbsp&nbsp</label>
+            <input type="text" id="start_time_info" size="10"/>
+        </div>
+        <br/>
+
+        <div class="box_item">
+            <label for="end_time_info">Room Closes At:&nbsp&nbsp</label>
+            <input type="text" id="end_time_info" size="10"/>
+        </div>
+        <br/>
+
+        <div class="box_item">
             <label for="room_info">Room Number:&nbsp&nbsp</label>
             <input type="text" id="room_info" size="10"/>
         </div>
@@ -63,9 +77,10 @@
     </div>
     <br />
     <br />
-    <button id= "confirm_button">Confirm -></button>
+    <button id= "confirm_button">Confirm</button>
     <br />
     <button id = "back_arrow"><-</button>
+    
    
   </body>
   </html>

@@ -8,25 +8,63 @@
     <title>Home Page</title>
 </head>
 <body class="bg-gray-200">
+    <nav class="bg-black fixed top-0 left-0 w-full z-10">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex">
+              <!-- <a href="#" class="flex-shrink-0 flex items-center">
+                <img class="h-8 w-auto" src="logo.svg" alt="Building Management">
+              </a> -->
+              <div class="hidden sm:ml-6 sm:flex">
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "home_page">Home</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id="login_page">Click to Login</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "rooms_page">Rooms</button></a>
+                <a href="#" class="px-3 py-4 text-white hover:text-gray-200"><button id = "choose_page">Add/Book Room</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
     <div>
         <div class = "flex justify-center items-center pt-20">
             <div class="bg-purple-700 rounded-lg box-border p-6 h-52 w-3/5 px-6">
                 <h2 class="text-white text-6xl text-center items-center">Your room reservation is confirmed!!</h2>
             </div>
         </div>
+
+    <div class="flex justify-center items-center pt-10">
+    <div class="bg-white rounded-lg box-border p-6 h-auto w-3/5 px-6">
+        <h2 class="text-purple-700 text-3xl text-center mb-6">Confirmation Details</h2>
+        <p class="text-gray-700 text-lg"><strong>Room No:</strong> <span id="roomNo"></span></p>
+        <p class="text-gray-700 text-lg"><strong>Max Capacity:</strong> <span id="maxCapacity"></span></p>
+        <p class="text-gray-700 text-lg"><strong>Available From:</strong> <span id="availableFrom"></span></p>
+        <p class="text-gray-700 text-lg"><strong>Available Till:</strong> <span id="availableTill"></span></p>
+    </div>
+    </div>
+
+
         <div class="container mx-auto pt-20 flex">
             <div class="flex-1 pl-52 ">
                 <div class="bg-purple-700 rounded-lg box-border p-6 h-32 w-3/5 px-6">
-                    <h2 class="text-white text-3xl text-center items-center">Reserve another room</h2>
+                    <h2 class="text-white text-3xl text-center items-center"><button id = "ReserveAnotherRoom" >Reserve another room</button></h2>
                 </div>
             </div>
+            
             <div class="flex-1">
                 <div class="bg-purple-700 rounded-lg box-border p-6 h-32 w-3/5 px-6">
-                    <h2 class="text-white text-3xl text-center items-center">Log out</h2>
+                    <h2 class="text-white text-3xl text-center items-center"><button id = "LogOut">Log out</button></h2>
                 </div>
             </div>
         </div>
 
     </div>
+
+
+
+    <script src="confirmation.js"></script>
+
+
+
 </body>
 </html>
