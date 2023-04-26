@@ -32,14 +32,6 @@ hr {
     height: 3px;
 }
 
-.circle {
-    margin: 1em;
-    height: 40px;
-    width: 40px;
-    background-color: #553EA3;
-    border-radius: 50%;
-  }
-
 .back_arrow {
     width: 5%;
     color: white;
@@ -47,15 +39,6 @@ hr {
     background-color: #553EA3; 
     border: 5px solid #553EA3;
     border-radius: 25px;
-}
-
-.top {
-    display: flex;
-    align-items: left;
-    justify-content: center;
-    margin: 1em;
-    border-radius: 20px;
-    padding: 3px;
 }
 
 .middle_buttons {  
