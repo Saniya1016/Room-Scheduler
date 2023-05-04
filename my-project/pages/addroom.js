@@ -1,21 +1,35 @@
-import Room_Database from "../server/room_crud.js";
+//import "../server/room_crud.js";
 
-const room_id = document.getElementById("room_info");
-const capacity = document.getElementById("capacity_info");
-// const date = document.getElementById("date_info");
-const start_time = document.getElementById("start_time_info");
-const end_time = document.getElementById("end_time_info");
-// const building = document.getElementById("building_info");
-const confirm_button = document.getElementById("confirm_button");
+const confirmButton = document.getElementById("confirm_button");
+confirmButton.addEventListener('click', confirmRoom);
 
-const data = new Room_Database();
+const backButton = document.getElementById("back_arrow");
+backButton.addEventListener('click', goBack);
 
-confirm_button.addEventListener('click' , () => {
-    //get info from page and save to database
-    let id = room_id.value;
-    let cap = Number(capacity.value);
-    let start = Number(start_time.value);
-    let end = Number(end_time.value);
+function confirmRoom() {
+    const roomOpenTime = document.getElementById("open_info");
+    const roomCloseTime = document.getElementById("close_info");
+    const roomID = document.getElementById("room_info");
+    const roomCapacity = document.getElementById("capacity_info");
+    
+    let newOpen = roomOpenTime.value;
+    let newClose = roomCloseTime.value;
+    let newID = roomID.value;
+    let newCapacity = roomCapacity.value;
 
-    data.createRoom(id, cap, start, end);
-});
+    if (confirm("Please confirm your details: \n" +
+                "Open Time: " + newOpen + "\n" +
+                "Close Time: " + newClose + "\n" +
+                "Room Number: " + newID + "\n" + 
+                "Room Capacity: " + newCapacity)) {
+        
+    }
+
+}
+
+//Takes user back to the previous page
+function goBack() {
+    window.location.href = "choose_action.html";
+}
+
+
