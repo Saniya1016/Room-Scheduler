@@ -1,74 +1,93 @@
-import PouchDb from "pouchdb";
+import { User } from './main_db.js';
 
-export default class User_Database{
-
-    constructor(){
-        this.db = new PouchDb('users');
-
-        //info about docs in database
-        this.db.info(function(err, info) {
-            if (err) {
-                return console.log(err);
-            } else {
-                console.log(info);
-            }
-        });
-
+export async function createUser(id, password, capacity, start_time, end_time, assignment){
+    try {
+      const newUser = new User({
+        _id: id,
+        password: password,
+        capacity: capacity,
+        start_time: start_time,
+        end_time: end_time,
+        assignment: assignment,
+      });
+      const savedUser = await newUser.save();
+      console.log('User created successfully:', savedUser);
+      return savedUser;
+    } catch (error) {
+      console.error('Failed to create User:', error);
+      throw error;
     }
-
-    //create a user with its attributes
-    async createUser(id, capacity, start_time, end_time){
-        let user = {_id: id, capacity: capacity, start_time: start_time, end_time: end_time};
-        await this.db.put(user).then(function (response) {
-            // handle response
-            console.log(user);
-          }).catch(function (err) {
-            console.log(err);
-          });
+  }
+  
+  export async function readUser(id){
+    try {
+      const user = await User.findById(id);
+      if (!user) {
+        console.log('User not found');
+        return null;
+      }
+      console.log('User found:', user);
+      return user;
+    } catch (error) {
+      console.error('Failed to retrieve user:', error);
+      throw error;
     }
-
-    //read user 
-    async readUser(id){
-        await this.db.get(id).then(function (doc) {
-            // handle doc
-            console.log(doc);
-          }).catch(function (err) {
-            console.log(err);
-          });
+  }
+  
+  export async function updateUser(id, capacity, start_time, end_time, assignment){
+    const updates = {capacity: capacity, start_time: start_time, end_time: end_time, assignment: assignment};
+    try {
+      const updatedUser = await User.findByIdAndUpdate(id, updates, {
+        new: true
+      });
+      if (!updatedUser) {
+        console.log('User not found');
+        return null;
+      }
+      console.log('User updated successfully:', updatedUser);
+      return updatedUser;
+    } catch (error) {
+      console.error('Failed to update user:', error);
+      throw error;
     }
-
-    //update user attributes
-    async updateCapacity(id, capacity){
-        let db = this.db;
-        await this.db.get(id).then(function(doc) {
-            doc.capacity = capacity;
-            return db.put(doc);
-          }).then(function(response) {
-            // handle response
-            // console.log(doc);
-          }).catch(function (err) {
-            console.log(err);
-          });
+  }
+  
+  export async function deleteUser(id){
+    try {
+      const deletedUser = await User.findByIdAndDelete(id);
+      if (!deletedUser) {
+        console.log('User not found');
+        return null;
+      }
+      console.log('User deleted successfully:', deletedUser);
+      return deletedUser;
+    } catch (error) {
+      console.error('Failed to delete user:', error);
+      throw error;
     }
-
-    //delete user id
-    async deleteUser(id){
-        let db = this.db;
-        await this.db.get(id).then(function(doc) {
-            return db.remove(doc);
-          }).then(function (result) {
-            // handle result
-          }).catch(function (err) {
-            console.log(err);
-          });
+  }
+  
+  export async function readAllUsers() {
+    try {
+      const users = await User.find();
+      return users;
+    } catch (error) {
+      console.error('Failed to retrieve users:', error);
+      throw error;
     }
-}
-
-// ============= TESTING =========== //
-
-// let data = new User_Database();
-// await data.createUser("4", 5, 9, 12);
-// await data.readUser("4");
-// await data.updateCapacity("4", 3);
-// await data.deleteUser("4");
-// await data.readUser("4");
+  }
+  
+  
+  // ==================== TESTING ====================== // 
+  
+  
+//   await createUser("11", 4, 9, 23, {12: [[2,4] , [9,10]]});
+//   await createUser("7", 4, 9, 23, {14: [[2,4] , [9,10]]});
+  
+//   await readUser("7");
+  
+//   await updateUser("7", 3, 4, 8, {10: [[2,3], [6,9]]});
+  
+//   await deleteUser("11");
+  
+//   console.log(await readAllUsers());
