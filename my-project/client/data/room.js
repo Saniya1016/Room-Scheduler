@@ -15,7 +15,7 @@ export default class Room{
             // console.log(PriorityQueue);
             this.availability = new PriorityQueue({comparator: (a, b) => a[0] - b[0]});
             this.availability.queue([0,start_time]);
-            this.availability.queue([end_time, 1000]);
+            this.availability.queue([end_time, 3000]);
         } else{
             this.availability = new PriorityQueue({comparator: (a, b) => a[0] - b[0]});
             availability.forEach((element) => {
