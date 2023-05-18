@@ -1,140 +1,106 @@
-// import PouchDb from "pouchdb";
-// import PouchDb from "//cdn.jsdelivr.net/npm/pouchdb@8.0.1/dist/pouchdb.min.js";
+import { Room } from './main_db.js';
 
-//class for the rooms database
-export default class Room_Database{
+export async function createRoom(id, capacity, start_time, end_time, availability, assignment){
+  try {
+    console.log("now: " , id, capacity, start_time, end_time, availability, assignment);
+    const newRoom = new Room({
+      _id: id,
+      capacity: capacity,
+      start_time: start_time,
+      end_time: end_time,
+      availability: availability,
+      assignment: assignment,
+    });
+    const savedRoom = await newRoom.save();
+    console.log('Room created successfully:', savedRoom);
+    return savedRoom;
+  } catch (error) {
+    console.error('Failed to create room:', error);
+    throw error;
+  }
+}
 
-    constructor(){
-        this.db = new PouchDB('rooms');
-        
-        //info about docs in database
-        this.db.info(function(err, info) {
-            if (err) {
-                return console.log(err);
-            } else {
-                console.log(info);
-            }
-        });
+export async function readRoom(id){
+  try {
+    const room = await Room.findById(id);
+    if (!room) {
+      console.log('Room not found');
+      return null;
     }
+    console.log('Room found:', room);
+    return room;
+  } catch (error) {
+    console.error('Failed to retrieve room:', error);
+    throw error;
+  }
+}
 
-    //create a room with its attributes ex: capacity, start/end times
-    async createRoom(id, capacity, start_time, end_time){
-        let room = {_id: id, capacity: capacity, start_time: start_time, end_time: end_time, availability: []};
-        await this.db.put(room).then(function (response) {
-            // handle response
-            console.log(room);
-          }).catch(function (err) {
-            console.log(err);
-          });
-
+export async function updateRoom(id, capacity, start_time, end_time, availability, assignment){
+  const updates = {capacity: capacity, start_time: start_time, end_time: end_time, availability: availability, assignment: assignment}
+  try {
+    const updatedRoom = await Room.findByIdAndUpdate(id, updates, {
+      new: true
+    });
+    if (!updatedRoom) {
+      console.log('Room not found');
+      return null;
     }
+    console.log('Room updated successfully:', updatedRoom);
+    return updatedRoom;
+  } catch (error) {
+    console.error('Failed to update room:', error);
+    throw error;
+  }
+}
 
-    //get information about a particular room input: id
-    async readRoom(id){
-        await this.db.get(id).then(function (doc) {
-            // handle doc
-            console.log(doc);
-          }).catch(function (err) {
-            console.log(err);
-          });
+export async function deleteRoom(id){
+  try {
+    const deletedRoom = await Room.findByIdAndDelete(id);
+    if (!deletedRoom) {
+      console.log('Room not found');
+      return null;
     }
+    console.log('Room deleted successfully:', deletedRoom);
+    return deletedRoom;
+  } catch (error) {
+    console.error('Failed to delete room:', error);
+    throw error;
+  }
+}
 
-    //update the capacity for a room
-    async updateRoomCapacity(id, capacity){
-        let db = this.db;
-        await this.db.get(id).then(function(doc) {
-            doc.capacity = capacity;
-            return db.put(doc);
-          }).then(function(response) {
-            // handle response
-            // console.log(doc);
-          }).catch(function (err) {
-            console.log(err);
-          });
-    }
-
-    //add a booking to the availability array for a particular room
-    async addTimeToAvailability(id, time){
-        let db = this.db;
-        await this.db.get(id).then(function(doc) {
-            doc.availability.push(time);
-            return db.put(doc);
-          }).then(function(response) {
-            // handle response
-            // console.log(doc);
-          }).catch(function (err) {
-            console.log(err);
-          });
-    }
-
-    //remove a booking time from the availability array for a particular room
-    async removeTimeFromAvailability(id, time){
-        let db = this.db;
-        await this.db.get(id).then(function(doc) {
-            let arr = doc.availability;
-            let index = arr.findIndex((element) => element[0] === time[0] && element[1] === time[1]);
-            if(index >= 0){
-                arr.splice(index,1);
-            }
-            else{
-                console.log("Time range not found");
-            }
-            return db.put(doc);
-          }).then(function(response) {
-            // handle response
-            // console.log(doc);
-          }).catch(function (err) {
-            console.log(err);
-          });
-    }
-
-    //delete a room
-    async deleteRoom(id){
-        let db = this.db;
-        await this.db.get(id).then(function(doc) {
-            return db.remove(doc);
-          }).then(function (result) {
-            // handle result
-          }).catch(function (err) {
-            console.log(err);
-          });
-    }
-
-
+export async function readAllRooms() {
+  try {
+    const rooms = await Room.find();
+    return rooms;
+  } catch (error) {
+    console.error('Failed to retrieve rooms:', error);
+    throw error;
+  }
 }
 
 
-//=============== TESTING ================= //
-
-// let data = new Room_Database();
-
-// await data.createRoom("5",4,9,10);
-// await data.readRoom("5");
-// await data.updateRoomCapacity("5", 33);
-// await data.readRoom("5");
-// await data.addTimeToAvailability("5", [9,12]);
-// await data.removeTimeFromAvailability("5", [9,12]);
-// await data.deleteRoom("5");
-// await data.readRoom("5");
+// ==================== TESTING ====================== // 
 
 
+// await createRoom("7", 4, 9, 23, [[2,3], [5,6]], {12: [[2,4] , [9,10]]});
+// await createRoom("5", 4, 9, 23, [[2,3], [5,6]], {12: [[2,4] , [9,10]]});
 
+// await readRoom("7");
 
-//delete all docs in constructor
+// await updateRoom("7", 3, 4, 8, [[8,12]], {10: [[2,3], [6,9]]});
 
-// this.db.allDocs()
-// .then(docs => {
-//     // use Promise.all() to delete each document
-//     return Promise.all(
-//     docs.rows.map(row => {
-//         return this.db.remove(row.id, row.value.rev);
-//     })
-//     );
-// })
-// .then(responses => {
-//     console.log('All documents deleted successfully:', responses);
-// })
-// .catch(error => {
-//     console.error('Failed to delete documents:', error);
-// });
+// await deleteRoom("5");
 
+// console.log(await readAllRooms());
+
+// Room.findOne({ _id: '7' })
+//   .then(room => {
+//     if (room) {
+//       console.log('Room found:', room);
+//     } else {
+//       console.log('Room not found');
+//     }
+//   })
+//   .catch(error => {
+//     console.error('Failed to retrieve room:', error);
+//   });
