@@ -1,8 +1,8 @@
 # Team 13 Project
 
-The application name  RoomSync
+The application name  Building Manager
 
-The RoomSync Web App is a user-friendly application designed to simplify the process of reserving meeting rooms based on user preferences. This README file provides an overview of the app's features and usage guidelines.
+The Building Manager Web App is a user-friendly application designed to simplify the process of reserving meeting rooms based on user preferences. This README file provides an overview of the app's features and usage guidelines.
 
 Features
 
