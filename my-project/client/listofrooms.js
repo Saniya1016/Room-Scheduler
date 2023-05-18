@@ -75,7 +75,7 @@ loadRooms();
 
 deleteButton.addEventListener("click", async function(event) {
     let roomid = roomId.value;
-    await deleteRoom(roomid);
+    await crud.deleteRoom(roomid);
     window.location.href = "listofrooms.html";
 });
 
