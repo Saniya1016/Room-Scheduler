@@ -1,27 +1,47 @@
-<<<<<<< HEAD
-# Team 13 Project
+# Room Scheduler
 
-The application name  Building Manager
+## Overview
 
-The Building Manager Web App is a user-friendly application designed to simplify the process of reserving meeting rooms based on user preferences. This README file provides an overview of the app's features and usage guidelines.
+**Room Scheduler** is a user-friendly web application designed to streamline the process of reserving meeting rooms based on user preferences. It offers robust functionality for both users and administrators, ensuring efficient room management and booking.
 
-Features
+## Features
 
-User Registration: Users can create an account by providing their basic information, such as name, email, and password.
+- **User Registration**: Users can create accounts by providing their basic information, such as name, email, and password.
+- **User Authentication**: Secure login ensures that only registered users can access the application's features.
+- **Meeting Room Listing**: Browse available meeting rooms with details like capacity, amenities, and availability.
+- **Search and Filters**: Find meeting rooms using criteria such as location, capacity, amenities, or availability.
+- **Booking Management**: Book meeting rooms for desired times, view, and manage existing bookings.
+- **Administrative Access**:
+  - **Room Management**: Administrators can add new rooms, update room details, and control room availability.
+  - **User Management**: Administrators can view and manage user accounts, including creating, modifying, and disabling accounts.
 
-User Authentication: Secure user authentication ensures that only registered users can access the app's features.
+## Technical Details
 
-Meeting Room Listing: The app displays a list of available meeting rooms, including details like room capacity, amenities, and availability.
+- **Back-End**: Developed using Node.js, providing a robust environment for handling room reservations and user data.
+- **Algorithm**: Implemented an efficient algorithm for determining room availability based on requested times.
+- **Database**: Utilized MongoDB for storing user and room information, ensuring reliable data management.
+- **User Authentication**: Integrated secure authentication with Passport.js.
+- **Front-End**: Designed and implemented using HTML and CSS to ensure a clean and responsive user interface.
 
-Search and Filters: Users can search for meeting rooms based on specific criteria, such as location, capacity, amenities, or availability.
+## Getting Started
 
-Booking Management: Registered users can book meeting rooms by selecting the desired room, date, and time slot. They can also view and manage their existing bookings.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Saniya1016/Room-Scheduler.git
+   ```
 
-Administrative Access: Building administrators have additional privileges to manage meeting rooms.
+2. **Install Dependencies**:
+   - Navigate to the project directory and install required packages:
+     ```bash
+     npm install
+     ```
 
-Room Management: Administrators can add new rooms to the system, update room details, and mark rooms as available or unavailable.
+3. **Set Up the Database**:
+   - Ensure MongoDB is running and configure the database connection as needed.
 
-User Management: Administrators have the ability to view and manage user accounts, including creating new accounts, modifying user details, and disabling accounts if necessary.
-=======
-# Room-Scheduler
->>>>>>> 68098f93f9a0714c607ee76df93c26e4b4a082b1
+4. **Run the Application**:
+   ```bash
+   npm start
+   ```
+
+-----------------------------------
