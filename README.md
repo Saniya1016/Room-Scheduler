@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Team 13 Project
 
 The application name  Building Manager
@@ -21,3 +22,6 @@ Administrative Access: Building administrators have additional privileges to man
 Room Management: Administrators can add new rooms to the system, update room details, and mark rooms as available or unavailable.
 
 User Management: Administrators have the ability to view and manage user accounts, including creating new accounts, modifying user details, and disabling accounts if necessary.
+=======
+# Room-Scheduler
+>>>>>>> 68098f93f9a0714c607ee76df93c26e4b4a082b1
